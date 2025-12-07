@@ -52,50 +52,6 @@ After running the database seeder, you can log in with:
 | Email    | `test@example.com` |
 | Password | `Test@1234`        |
 
-## Development
-
-### Start Development Server
-
-```bash
-# Start all development services concurrently (server, queue, logs, vite)
-composer dev
-```
-
-This will start:
-- Laravel development server
-- Queue listener
-- Laravel Pail (log viewer)
-- Vite dev server
-
-### With SSR (Server-Side Rendering)
-
-```bash
-composer dev:ssr
-```
-
-### Other Commands
-
-```bash
-# Run tests
-composer test
-
-# Lint and format code
-npm run lint
-npm run format
-
-# Check formatting
-npm run format:check
-```
-
-## Docker Setup (Laradock)
-
-This project includes Laradock configuration for Docker-based development:
-
-```bash
-cd laradock-hmcts
-docker-compose up -d nginx mysql workspace
-```
-
 ---
 
 ## API Documentation
