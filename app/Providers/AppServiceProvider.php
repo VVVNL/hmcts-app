@@ -23,18 +23,18 @@ class AppServiceProvider extends ServiceProvider
         $this->configureSecureUrls();
     }
 
-        protected function configureSecureUrls()
-        {
-            // Determine if HTTPS should be enforced
-            $enforceHttps = $this->app->environment(['production', 'staging'])
-                && !$this->app->runningUnitTests();
+    protected function configureSecureUrls()
+    {
+        // Determine if HTTPS should be enforced
+        $enforceHttps = $this->app->environment(['production', 'staging'])
+            && !$this->app->runningUnitTests();
 
-            // Force HTTPS for all generated URLs
-            URL::forceHttps($enforceHttps);
+        // Force HTTPS for all generated URLs
+        URL::forceHttps($enforceHttps);
 
-            if ($enforceHttps) {
-                // Ensure proper server variable is set
-                $this->app['request']->server->set('HTTPS', true);
-            }
+        if ($enforceHttps) {
+            // Ensure proper server variable is set
+            $this->app['request']->server->set('HTTPS', true);
         }
+    }
 }
