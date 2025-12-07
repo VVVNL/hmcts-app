@@ -11,7 +11,7 @@ class StatusSeeder extends Seeder
         $statuses = ['Pending', 'In Progress', 'Completed'];
 
         foreach ($statuses as $status) {
-            \App\Models\Status::create(['name' => $status]);
+            \App\Models\Status::firstOrCreate(['name' => $status]);
         }
     }
 }

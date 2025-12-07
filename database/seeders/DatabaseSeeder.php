@@ -16,11 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make('Test@1234'),
-        ]);
+        // Only create the test user if no users exist
+        if (User::count() === 0) {
+            User::create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+                'password' => Hash::make('Test@1234'),
+            ]);
+        }
 
         $this->call([
             StatusSeeder::class,
