@@ -41,7 +41,7 @@ const submit = () => {
             <div class="mx-auto w-full max-w-2xl">
                 <!-- FLASH SUCCESS -->
                 <Card
-                    v-if="page.props?.success"
+                    v-if="page.props.flash?.success"
                     class="mb-6 border-green-500 bg-green-50 dark:bg-green-900/10"
                 >
                     <CardHeader>
@@ -50,7 +50,7 @@ const submit = () => {
                         </CardTitle>
                     </CardHeader>
                     <CardContent class="text-green-700 dark:text-green-300">
-                        <p>{{ page.props?.success }}</p>
+                        <p>{{ page.props.flash?.success.message }}</p>
                         <div
                             class="mt-4 rounded-md border border-green-200 bg-white p-4 dark:border-green-800 dark:bg-zinc-900"
                         >
@@ -58,27 +58,27 @@ const submit = () => {
                             <ul class="mt-2 list-inside list-disc">
                                 <li>
                                     <strong>Title:</strong>
-                                    {{ page.props?.task.title }}
+                                    {{ page.props.flash?.success.task.title }}
                                 </li>
-                                <li v-if="page.props?.task.description">
+                                <li v-if="page.props.flash?.success.task.description">
                                     <strong>Description:</strong>
-                                    {{ page.props?.task.description }}
+                                    {{ page.props.flash?.success.task.description }}
                                 </li>
                                 <li>
                                     <strong>Status:</strong>
-                                    {{ page.props?.task.status.name }}
+                                    {{ page.props.flash?.success.task.status.name }}
                                 </li>
                                 <li>
                                     <strong>Due:</strong>
                                     {{
                                         new Date(
-                                            page.props?.task.due,
+                                            page.props.flash?.success.task.due,
                                         ).toLocaleString()
                                     }}
                                 </li>
                                 <li>
                                     <strong>Created by:</strong>
-                                    {{ page.props?.task.user.name }}
+                                    {{ page.props.flash?.success.task.user.name }}
                                 </li>
                             </ul>
                         </div>

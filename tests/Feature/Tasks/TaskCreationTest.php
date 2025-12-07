@@ -55,14 +55,9 @@ class TaskCreationTest extends TestCase
 
         $response = $this->post(route('tasks.store'), $payload);
 
-        $response->assertStatus(200);
-        $response->assertInertia(
-            fn($page) => $page
-                ->component('Tasks/Create')
-                ->has('success')
-                ->where('success', 'Task created successfully.')
-                ->has('task')
-        );
+        $response->assertRedirect(route('tasks.create'));
+        $response->assertSessionHas('success.message', 'Task created successfully.');
+        $response->assertSessionHas('success.task');
 
         $this->assertDatabaseCount('tasks', 1);
 

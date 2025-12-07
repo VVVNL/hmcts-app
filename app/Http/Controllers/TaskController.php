@@ -35,8 +35,8 @@ class TaskController extends Controller
         $task->save();
 
         // return success message and task details
-        return Inertia::render('Tasks/Create', [
-            'success' => 'Task created successfully.',
+        return redirect()->route('tasks.create')->with('success', [
+            'message' => 'Task created successfully.',
             'task' => $task->refresh(),
         ]);
     }
